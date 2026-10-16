@@ -46,8 +46,6 @@
             color: #e0e0e0;
         }
 
-        /* NEW STYLES BELOW */
-
         /* Top Center Container */
         .top-center-container {
             position: absolute;
@@ -89,24 +87,23 @@
             font-weight: bold;
             letter-spacing: 1px;
             text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
-            font-family: 'Trebuchet MS', sans-serif; /* Clean, stylish font fallback */
+            font-family: 'Trebuchet MS', sans-serif;
         }
 
-        /* Top Right Main Logo Container */
-        .top-right-logo {
+        /* UPDATED: Top Left Main Logo Container (Larger Size) */
+        .top-left-logo {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 80px; /* Scaled down nicely for the header layout */
-            height: 80px;
+            top: 25px;
+            left: 25px;
+            width: 180px; /* Increased from 80px so it's not microscopic */
+            height: 180px; /* Kept perfectly square */
             z-index: 10;
         }
 
-        .top-right-logo img {
+        .top-left-logo img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            border-radius: 8px;
         }
     </style>
 </head>
@@ -120,11 +117,16 @@
         <div class="logo-text">Oreo.net</div>
     </div>
 
-    <!-- Top Right Space for Main.png -->
-    <div class="top-right-logo">
+    <!-- UPDATED: Main Logo moved to the Top Left -->
+    <div class="top-left-logo">
         <img src="main.png" alt="Main Logo">
     </div>
 
+    <!-- Content Box -->
+    <div class="content-box">
+        <h1>Welcome</h1>
+        <p>Your website content goes right here.</p>
+    </div>
 
 </body>
 </html>
