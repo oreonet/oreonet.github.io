@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>oreo.net -Join the oreos today!</title>
+    <title>Oreo.net -Join the oreos today!</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         html, body {
             margin: 0 !important;
             padding: 0 !important;
             width: 100%;
-            height: 100%;
         }
         body {
             background-image: url('bg.png') !important;
@@ -23,10 +25,18 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+        .landing-hero {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
             position: relative;
+            box-sizing: border-box;
+            padding: 40px 20px;
         }
-
         .front-logo-wrapper {
             position: relative;
             width: 1400px;
@@ -39,14 +49,12 @@
             justify-content: center;
             max-width: 95vw;
         }
-
         .front-logo-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
-
         .centered-image-text {
             position: absolute;
             top: 50%;
@@ -68,8 +76,6 @@
             pointer-events: none;
             z-index: 5;
         }
-
-        /* Top Left Main Logo Link */
         .top-left-logo-link {
             position: absolute;
             top: 0;
@@ -80,25 +86,217 @@
             cursor: pointer;
             display: block;
         }
-
         .top-left-logo-link img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
+        .start-btn {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 16px 45px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #ffffff;
+            background: linear-gradient(135deg, #0072ff, #00c6ff);
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 6px 20px rgba(0, 114, 255, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 114, 255, 0.6);
+            filter: brightness(1.1);
+        }
+        .downloads-section {
+            min-height: 100vh;
+            width: 100%;
+            max-width: 1400px;
+            padding: 80px 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .tab-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+        .tab-btn {
+            padding: 14px 35px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .tab-btn:hover, .tab-btn.active {
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+            box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+        }
+        .download-view {
+            display: none;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 50px;
+            box-sizing: border-box;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .download-view.active-view {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+        .view-left {
+            width: 568px;
+            height: 568px;
+            flex-shrink: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.03);
+        }
+        .view-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .view-right {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .view-right h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin: 0 0 20px 0;
+            letter-spacing: -1px;
+        }
+        .disabled-download-btn {
+            display: inline-block;
+            padding: 18px 50px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #888888;
+            background-color: #333333;
+            border: 2px solid #555555;
+            border-radius: 50px;
+            cursor: not-allowed;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            user-select: none;
+        }
+        .status-message {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #aaaaaa;
+            margin: 0;
+            font-style: italic;
+        }
+        @media (max-width: 1200px) {
+            .download-view.active-view {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            .view-right {
+                align-items: center;
+            }
+            .view-left {
+                width: 300px;
+                height: 300px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="front-logo-wrapper">
-        <img src="Front.png" alt="Front Logo">
-        <h1 class="centered-image-text">Welcome to oreo.net</h1>
+    <div class="landing-hero">
+        <a href="oreonet.github.io/" class="top-left-logo-link">
+            <img src="main.png" alt="Main Logo">
+        </a>
+
+        <div class="front-logo-wrapper">
+            <img src="Front.png" alt="Front Logo">
+            <h1 class="centered-image-text">Welcome to oreo.net</h1>
+        </div>
+
+        <a href="#downloads" class="start-btn">Start</a>
     </div>
 
-    <!-- REDIRECT SET EXACTLY TO OREONET.GITHUB.IO -->
-    <a href="oreonet.github.io/" class="top-left-logo-link">
-        <img src="main.png" alt="Main Logo">
-    </a>
+    <div id="downloads" class="downloads-section">
+        <h2 class="section-title">Select Platform</h2>
+
+        <div class="tab-container">
+            <button class="tab-btn active" onclick="switchPlatform('windows')">Windows</button>
+            <button class="tab-btn" onclick="switchPlatform('android')">Android</button>
+        </div>
+
+        <div id="windows-view" class="download-view active-view">
+            <div class="view-left">
+                <img src="pc.png" alt="PC Platform Logo">
+            </div>
+            <div class="view-right">
+                <h2>oreo.net for Windows</h2>
+                <div class="disabled-download-btn">Download now</div>
+                <p class="status-message">Not released yet, Sorry!</p>
+            </div>
+        </div>
+
+        <div id="android-view" class="download-view">
+            <div class="view-left">
+                <img src="main.png" alt="Android Platform Logo">
+            </div>
+            <div class="view-right">
+                <h2>oreo.net for Android</h2>
+                <div class="disabled-download-btn">Download now</div>
+                <p class="status-message">Not released yet, Sorry!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchPlatform(platform) {
+            document.getElementById('windows-view').classList.remove('active-view');
+            document.getElementById('android-view').classList.remove('active-view');
+            
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            if (platform === 'windows') {
+                document.getElementById('windows-view').classList.add('active-view');
+                event.currentTarget.classList.add('active');
+            } else if (platform === 'android') {
+                document.getElementById('android-view').classList.add('active-view');
+                event.currentTarget.classList.add('active');
+            }
+        }
+    </script>
 
 </body>
 </html>
