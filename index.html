@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>oreo.net</title>
+    <title>Oreonet Website</title>
+    <!-- Imports Montserrat for a clean, modern, premium UI look -->
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
         /* Force styling overrides to ignore GitHub defaults */
         html, body {
@@ -19,7 +21,7 @@
             background-position: center center !important;
             background-repeat: no-repeat !important;
             background-attachment: fixed !important;
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -28,53 +30,54 @@
             position: relative; /* Allows absolute positioning for children */
         }
 
-        /* Top Center Container */
-        .top-center-container {
-            position: absolute;
-            top: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            z-index: 10;
-        }
-
-        /* UPDATED: Wider container designed to fit the rectangular blue image perfectly */
-        .logo-square {
-            width: 480px; /* Made wider to accommodate the banner shape */
-            height: 280px; /* Adjusted height for a balanced landscape box */
-            background-color: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 2px solid rgba(255, 255, 255, 0.25);
-            border-radius: 30px;
+        /* UPDATED: Custom 766x750 Front Image Wrapper with text stacked inside */
+        .front-logo-wrapper {
+            position: relative;
+            width: 766px;
+            height: 750px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            border-radius: 24px; /* Optional clean rounded frame edges */
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
         }
 
-        /* Let the image fill the area naturally up to its edges without chopping off the borders */
-        .logo-square img {
+        /* Forces image to cover the exact space with zero transparent gaps */
+        .front-logo-wrapper img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Prevents cropping or clipping the pattern layout */
-            padding: 10px; /* Slight breathing room so edges look clean */
-            box-sizing: border-box;
+            object-fit: cover; /* Edge to edge background coverage */
+            display: block;
         }
 
-        /* UPDATED: Centered text area, scaled smaller to perfectly fit the new longer phrase */
-        .logo-text {
-            font-size: 1.6rem; /* Scaled down slightly so it doesn't wrap awkwardly */
-            font-weight: bold;
-            letter-spacing: 1.5px;
+        /* UPDATED: Centered Directly Over The Image Matrix */
+        .centered-image-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%; /* Stops text from reaching the bleeding edges */
             text-align: center;
-            text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.7);
-            font-family: 'Trebuchet MS', sans-serif;
-            max-width: 480px;
+            
+            /* Typography & Style Overhaul */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffffff;
+            
+            /* High contrast structural text shadow so it pops cleanly off the blue pattern texture */
+            text-shadow: 
+                -2px -2px 0 #000,  
+                 2px -2px 0 #000,
+                -2px  2px 0 #000,
+                 2px  2px 0 #000,
+                 0px  4px 10px rgba(0, 0, 0, 0.8);
+            
+            pointer-events: none; /* Mouse clicks pass right through to image targets */
+            z-index: 5;
         }
 
         /* Clickable Main Logo locked strictly to the Top Left Edge */
@@ -98,16 +101,14 @@
 </head>
 <body>
 
-    <!-- Top Center Area: Wider Container with Front.png & Updated Greeting Text -->
-    <div class="top-center-container">
-        <div class="logo-square">
-            <img src="Front.png" alt="Front Logo">
-        </div>
-        <div class="logo-text">Welcome to oreo.net</div>
+    <!-- Central Branding Component: Exact 766x750 Aspect Ratio with Text Layer Centered Inside -->
+    <div class="front-logo-wrapper">
+        <img src="Front.png" alt="Front Logo Background Matrix">
+        <h1 class="centered-image-text">Welcome to oreo.net</h1>
     </div>
 
     <!-- Main Logo moved to the Top Left (Clickable back to repository site) -->
-    <a href="oreonet.github.io" class="top-left-logo-link">
+    <a href="https://github.io" class="top-left-logo-link">
         <img src="main.png" alt="Main Logo">
     </a>
 
