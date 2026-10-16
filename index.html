@@ -12,23 +12,21 @@
             width: 100%;
             height: 100%;
         }
-
         body {
             /* Links your background image file */
-            background-image: url('bg.png') !important; 
+            background-image: url('bg.png') !important;
             background-size: cover !important;
             background-position: center center !important;
             background-repeat: no-repeat !important;
             background-attachment: fixed !important;
-            
             font-family: Arial, sans-serif;
             color: #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            position: relative; /* Allows absolute positioning for children */
         }
-
         /* Content block layout to make your text readable over the image */
         .content-box {
             background: rgba(0, 0, 0, 0.6);
@@ -37,22 +35,101 @@
             text-align: center;
             max-width: 500px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+            margin-top: 140px; /* Gives space so it doesn't overlap the top center box */
         }
-
         h1 {
             margin-top: 0;
             font-size: 2.5rem;
         }
-
         p {
             font-size: 1.2rem;
             color: #e0e0e0;
+        }
+
+        /* NEW STYLES BELOW */
+
+        /* Top Center Container */
+        .top-center-container {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        /* Top Center Rounded Square for Logo */
+        .logo-square {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px; /* Makes it a rounded square */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo-square img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+        }
+
+        /* Oreo.net Font Styling */
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+            font-family: 'Trebuchet MS', sans-serif; /* Clean, stylish font fallback */
+        }
+
+        /* Top Right Main Logo Container */
+        .top-right-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 80px; /* Scaled down nicely for the header layout */
+            height: 80px;
+            z-index: 10;
+        }
+
+        .top-right-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
 
-    
+    <!-- Top Center Rounded Square with Front.png & Oreo.net Text -->
+    <div class="top-center-container">
+        <div class="logo-square">
+            <img src="Front.png" alt="Front Logo">
+        </div>
+        <div class="logo-text">Oreo.net</div>
+    </div>
+
+    <!-- Top Right Space for Main.png -->
+    <div class="top-right-logo">
+        <img src="main.png" alt="Main Logo">
+    </div>
+
+    <!-- Your existing content-box structure (You can put your text inside here) -->
+    <div class="content-box">
+        <h1>Welcome</h1>
+        <p>Your website content goes right here.</p>
+    </div>
 
 </body>
 </html>
