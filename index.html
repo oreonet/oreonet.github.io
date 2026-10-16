@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- UPDATED: Custom Website Title for the Browser Tab -->
     <title>Oreo.net -Join the oreos today!</title>
-    <!-- Imports Montserrat for a clean, modern, premium UI look -->
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        /* Force styling overrides to ignore dGitHub defaults */
         html, body {
             margin: 0 !important;
             padding: 0 !important;
@@ -16,8 +13,6 @@
             height: 100%;
         }
         body {
-            /*Lets fart together shall we for an update*/
-            /* Links your background image file */
             background-image: url('bg.png') !important;
             background-size: cover !important;
             background-position: center center !important;
@@ -29,62 +24,52 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            position: relative; /* Allows absolute positioning for children */
+            position: relative;
         }
 
-        /* UPDATED: Custom 1400x560 Front Image Wrapper with text stacked inside */
         .front-logo-wrapper {
             position: relative;
             width: 1400px;
             height: 560px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            border-radius: 24px; /* Optional clean rounded frame edges */
+            border-radius: 24px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            max-width: 95vw; /* Keeps it responsive if the window is too small */
+            max-width: 95vw;
         }
 
-        /* Forces image to cover the exact space with zero transparent gaps */
         .front-logo-wrapper img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Edge to edge background coverage */
+            object-fit: cover;
             display: block;
         }
 
-        /* Centered Directly Over The Image Matrix */
         .centered-image-text {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 90%; /* Stops text from reaching the bleeding edges */
+            width: 90%;
             text-align: center;
-            
-            /* Typography Style Overhaul */
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem; /* Slightly larger to fit the wide banner format beautifully */
+            font-size: 3.5rem;
             font-weight: 800;
             letter-spacing: 1px;
             color: #ffffff;
-            
-            /* REMOVED text-transform: uppercase; to allow normal casing */
-            
-            /* High contrast structural text shadow so it pops cleanly off the blue pattern texture */
             text-shadow: 
                 -2px -2px 0 #000,  
                  2px -2px 0 #000,
                 -2px  2px 0 #000,
                  2px  2px 0 #000,
                  0px  4px 10px rgba(0, 0, 0, 0.8);
-            
-            pointer-events: none; /* Mouse clicks pass right through to image targets */
+            pointer-events: none;
             z-index: 5;
         }
 
-        /* Clickable Main Logo locked strictly to the Top Left Edge */
+        /* Top Left Main Logo Link */
         .top-left-logo-link {
             position: absolute;
             top: 0;
@@ -105,15 +90,13 @@
 </head>
 <body>
 
-    <!-- Central Branding Component: Exact 1400x560 Aspect Ratio with Text Layer Centered Inside -->
     <div class="front-logo-wrapper">
-        <img src="Front.png" alt="Front Logo Background Matrix">
-        <!-- UPDATED: Normal non-capitalized string -->
+        <img src="Front.png" alt="Front Logo">
         <h1 class="centered-image-text">Welcome to oreo.net</h1>
     </div>
 
-    <!-- Main Logo moved to the Top Left (Clickable back to repository site) -->
-    <a href="https://watchbutdonotlearn.github.io/" class="top-left-logo-link">
+    <!-- REDIRECT SET EXACTLY TO OREONET.GITHUB.IO -->
+    <a href="oreonet.github.io/" class="top-left-logo-link">
         <img src="main.png" alt="Main Logo">
     </a>
 
